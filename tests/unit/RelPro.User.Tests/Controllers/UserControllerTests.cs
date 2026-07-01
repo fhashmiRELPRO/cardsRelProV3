@@ -6,9 +6,9 @@ using RelPro.Common.Exceptions;
 using RelPro.Contracts.Common;
 using RelPro.Contracts.Enums;
 using RelPro.Infrastructure.Testing;
-using RelPro.User.Api.Controllers;
-using RelPro.User.Api.Models;
-using RelPro.User.Api.Services;
+using RelPro.CARDS.Api.User.Controllers;
+using RelPro.CARDS.Api.User.Models;
+using RelPro.CARDS.Api.User.Services;
 
 namespace RelPro.User.Tests.Controllers;
 

@@ -1,7 +1,7 @@
 using NSubstitute;
 using RelPro.Common.Exceptions;
-using RelPro.User.Api.Repositories;
-using RelPro.User.Api.Services;
+using RelPro.CARDS.Api.User.Repositories;
+using RelPro.CARDS.Api.User.Services;
 
 namespace RelPro.User.Tests.Services;
 

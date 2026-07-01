@@ -1,4 +1,4 @@
-using RelPro.Auth.Api.Services;
+using RelPro.CARDS.Api.Auth.Services;
 using System.Security.Cryptography;
 using System.Text;
 

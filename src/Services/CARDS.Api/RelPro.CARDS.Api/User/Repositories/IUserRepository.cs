@@ -1,0 +1,6 @@
+namespace RelPro.CARDS.Api.User.Repositories;
+
+public interface IUserRepository
+{
+    Task<UserRow?> GetByIdAsync(int userId, CancellationToken ct = default);
+}

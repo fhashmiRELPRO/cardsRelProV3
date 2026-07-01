@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Services\Search.Service\RelPro.Search.Api\RelPro.Search.Api.csproj" />
+    <ProjectReference Include="..\..\..\src\Services\CARDS.Api\RelPro.CARDS.Api\RelPro.CARDS.Api.csproj" />
     <ProjectReference Include="..\..\..\src\Shared\RelPro.Infrastructure\RelPro.Infrastructure.csproj" />
   </ItemGroup>
 

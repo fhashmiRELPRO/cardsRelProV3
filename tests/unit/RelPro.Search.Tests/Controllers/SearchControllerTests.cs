@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using RelPro.Contracts.Common;
-using RelPro.Search.Api.Controllers;
-using RelPro.Search.Api.Models;
-using RelPro.Search.Api.Repositories;
+using RelPro.CARDS.Api.Search.Controllers;
+using RelPro.CARDS.Api.Search.Models;
+using RelPro.CARDS.Api.Search.Repositories;
 
 namespace RelPro.Search.Tests.Controllers;
 

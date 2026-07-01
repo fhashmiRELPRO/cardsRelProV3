@@ -1,7 +1,7 @@
 using NSubstitute;
-using RelPro.Auth.Api.Models;
-using RelPro.Auth.Api.Repositories;
-using RelPro.Auth.Api.Services;
+using RelPro.CARDS.Api.Auth.Models;
+using RelPro.CARDS.Api.Auth.Repositories;
+using RelPro.CARDS.Api.Auth.Services;
 using RelPro.Contracts.Dtos;
 using RelPro.Contracts.Enums;
 using RelPro.Infrastructure.Entitlements;
