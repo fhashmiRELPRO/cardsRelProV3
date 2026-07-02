@@ -27,8 +27,6 @@ public sealed class UserControllerTests
         Headline: "CEO", IsActive: true, IsEnabled: true, IsAdmin: false,
         LicenseExpires: "2027-12-31");
 
-    // --- Me() ---
-
     [Fact]
     public void Me_Returns200_WithContextData()
     {
@@ -69,8 +67,6 @@ public sealed class UserControllerTests
 
         Assert.NotNull(result!.Data!.ContractExpiry);
     }
-
-    // --- GetById() ---
 
     [Fact]
     public async Task GetById_Returns200_WithUserDetail()

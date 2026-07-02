@@ -6,21 +6,12 @@ public static class EncryptedConfigurationExtensions
 {
     private const string EncPrefix = "ENC:";
 
-    /// <summary>
-    /// Decrypts any configuration value prefixed with "ENC:" using AES-256-GCM.
-    /// The master key is read from the RELPRO_CONFIG_KEY environment variable.
-    /// If no ENC: values are present the key is not required (safe for local dev with user-secrets).
-    /// </summary>
     public static IConfigurationBuilder AddEncryptedConfiguration(this IConfigurationBuilder builder)
     {
         var key = ConfigEncryption.LoadKeyFromEnvironment();
         return builder.AddEncryptedConfiguration(key);
     }
 
-    /// <summary>
-    /// Decrypts any configuration value prefixed with "ENC:" using the supplied key.
-    /// Pass null to allow startup when no encrypted values are present (dev/test scenarios).
-    /// </summary>
     public static IConfigurationBuilder AddEncryptedConfiguration(
         this IConfigurationBuilder builder, byte[]? key)
     {

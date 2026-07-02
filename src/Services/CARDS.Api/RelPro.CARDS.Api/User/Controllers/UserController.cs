@@ -25,19 +25,6 @@ public sealed class UserController : ControllerBase
         _pendoPrefix = config["Pendo:AccountIdPrefix"] ?? string.Empty;
     }
 
-    /// <summary>
-    /// Returns the profile of the currently authenticated user.
-    /// </summary>
-    /// <remarks>
-    /// Reads directly from the request context - no database call required.
-    /// The context is populated by `RequestContextMiddleware` which validates the
-    /// `userToken` header against the CARDS legacy session store.
-    ///
-    /// **Error codes:**
-    /// - `MISSING_TOKEN` - no `userToken` header present
-    /// - `INVALID_SESSION` - token is expired or not recognised
-    /// - `CONTRACT_INACTIVE` - the user's contract has expired or been disabled
-    /// </remarks>
     [HttpGet("me")]
     [ProducesResponseType(typeof(ApiResponse<UserProfileResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status401Unauthorized)]
@@ -58,22 +45,6 @@ public sealed class UserController : ControllerBase
         return Ok(ApiResponse<UserProfileResponse>.Ok(profile));
     }
 
-    /// <summary>
-    /// Returns detailed profile of a user by their ID.
-    /// </summary>
-    /// <remarks>
-    /// Requires the **UserManagement** entitlement. The calling user may only retrieve
-    /// users that belong to their own organisation - cross-organisation requests return
-    /// 404 (not 403) to avoid revealing whether the user exists.
-    ///
-    /// **Error codes:**
-    /// - `INVALID_ID` - id must be a positive integer
-    /// - `MISSING_TOKEN` / `INVALID_SESSION` - authentication required
-    /// - `ENTITLEMENT_REQUIRED` - caller lacks UserManagement entitlement
-    /// - `NOT_FOUND` - user does not exist or belongs to a different organisation
-    /// </remarks>
-    /// <param name="id">Positive integer user ID</param>
-    /// <param name="ct">Cancellation token</param>
     [HttpGet("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<UserDetailResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]

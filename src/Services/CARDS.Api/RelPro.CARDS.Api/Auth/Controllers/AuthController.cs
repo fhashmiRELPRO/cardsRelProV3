@@ -22,23 +22,6 @@ public sealed class AuthController : ControllerBase
         _contractOpts = contractOpts.Value;
     }
 
-    /// <summary>
-    /// Authenticate with email and password and receive a session token.
-    /// </summary>
-    /// <remarks>
-    /// **Development/testing use only during the CARDS migration.**
-    ///
-    /// Production users authenticate via the CARDS legacy application - their `userToken` cookie/session
-    /// is accepted directly by all services without going through this endpoint.
-    ///
-    /// On success the returned `token` must be sent as the `userToken` header on all subsequent requests.
-    ///
-    /// **Error codes:**
-    /// - `INVALID_CREDENTIALS` - email or password does not match any active account
-    /// - `INVALID_ARGUMENT` - email format is invalid or required fields are missing
-    /// </remarks>
-    /// <param name="request">Login credentials</param>
-    /// <param name="ct">Cancellation token</param>
     [AllowAnonymous]
     [HttpPost("login")]
     [ProducesResponseType(typeof(ApiResponse<LoginResponse>), StatusCodes.Status200OK)]

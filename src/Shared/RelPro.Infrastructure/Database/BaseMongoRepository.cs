@@ -3,11 +3,6 @@ using RelPro.Contracts.Common;
 
 namespace RelPro.Infrastructure.Database;
 
-/// <summary>
-/// Abstract base for all MongoDB repositories. Subclasses provide DatabaseName and
-/// CollectionName, then call the protected helpers.
-/// T must be a class with an Id field that MongoDB.Driver can map.
-/// </summary>
 public abstract class BaseMongoRepository<T> where T : class
 {
     private readonly IMongoClientFactory _factory;

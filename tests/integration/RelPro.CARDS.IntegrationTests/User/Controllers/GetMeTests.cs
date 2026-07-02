@@ -13,7 +13,6 @@ public sealed class GetMeTests : IClassFixture<CardsApiFactory>
     public GetMeTests(CardsApiFactory factory)
         => _client = factory.CreateClient();
 
-    // 200
     [Fact]
     public async Task Returns200_WithValidToken()
     {
@@ -38,7 +37,6 @@ public sealed class GetMeTests : IClassFixture<CardsApiFactory>
         Assert.Equal("Test User", body.Data.DisplayName);
     }
 
-    // 401
     [Fact]
     public async Task Returns401_WhenNoTokenProvided()
     {
@@ -59,7 +57,6 @@ public sealed class GetMeTests : IClassFixture<CardsApiFactory>
         Assert.Equal("INVALID_SESSION", body!.ErrorCode);
     }
 
-    // 403
     [Fact]
     public async Task Returns403_WhenContractIsInactive()
     {

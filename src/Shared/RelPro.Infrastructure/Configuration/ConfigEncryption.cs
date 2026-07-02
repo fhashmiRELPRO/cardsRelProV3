@@ -3,21 +3,6 @@ using System.Text;
 
 namespace RelPro.Infrastructure.Configuration;
 
-/// <summary>
-/// AES-256-GCM encrypt/decrypt for configuration values.
-///
-/// Format: ENC:{base64(nonce[12] + tag[16] + ciphertext)}
-///
-/// To encrypt a value for appsettings.json:
-///   var key = Convert.FromBase64String(Environment.GetEnvironmentVariable("RELPRO_CONFIG_KEY")!);
-///   var encrypted = ConfigEncryption.Encrypt(key, "my-secret-value");
-///   // paste the result into appsettings.json
-///
-/// To generate a new master key (run once per environment):
-///   var key = System.Security.Cryptography.RandomNumberGenerator.GetBytes(32);
-///   Console.WriteLine(Convert.ToBase64String(key));
-///   // store this in RELPRO_CONFIG_KEY environment variable on the server
-/// </summary>
 public static class ConfigEncryption
 {
     private const int NonceSize = 12;

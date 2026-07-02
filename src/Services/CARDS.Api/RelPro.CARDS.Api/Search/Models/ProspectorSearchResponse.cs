@@ -2,10 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace RelPro.CARDS.Api.Search.Models;
 
-/// <summary>
-/// Wire-compatible with the CARDS /prospector/v1/search response.
-/// No ApiResponse wrapper - frontend consumes this directly.
-/// </summary>
 public sealed class ProspectorSearchResponse
 {
     [JsonPropertyName("totalIndividuals")] public int TotalIndividuals                    { get; init; }

@@ -5,10 +5,6 @@ using System.Reflection;
 
 namespace RelPro.Infrastructure.Swagger;
 
-/// <summary>
-/// Automatically adds the standard 401 and 500 response descriptions to every Swagger operation.
-/// 401 is suppressed for [AllowAnonymous] endpoints.
-/// </summary>
 public sealed class StandardResponseOperationFilter : IOperationFilter
 {
     public void Apply(OpenApiOperation operation, OperationFilterContext context)

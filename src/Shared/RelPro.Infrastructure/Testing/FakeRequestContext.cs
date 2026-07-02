@@ -4,11 +4,6 @@ using RelPro.Infrastructure.Context;
 
 namespace RelPro.Infrastructure.Testing;
 
-/// <summary>
-/// Pre-populated IRequestContext for unit and integration tests.
-/// Use FakeRequestContext.Default for standard happy-path tests.
-/// Use FakeRequestContext.WithEntitlement(feature) to test entitlement checks.
-/// </summary>
 public sealed class FakeRequestContext : IRequestContext
 {
     public bool IsPopulated { get; init; } = true;
@@ -36,7 +31,6 @@ public sealed class FakeRequestContext : IRequestContext
 
     public static FakeRequestContext WithEntitlement(EntitlementFeature feature)
     {
-        // Build an entitlements dto with only the requested feature enabled
         var props = typeof(ContractEntitlementsDto)
             .GetProperties()
             .Where(p => p.PropertyType == typeof(bool));

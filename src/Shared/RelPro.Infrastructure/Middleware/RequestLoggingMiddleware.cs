@@ -9,13 +9,6 @@ using RelPro.Infrastructure.Logging;
 
 namespace RelPro.Infrastructure.Middleware;
 
-/// <summary>
-/// Runs AFTER RequestContextMiddleware. For every authenticated request:
-///   1. Pre-flight quota check  - returns 429 if the user's limit is exhausted
-///   2. Awaits the downstream pipeline
-///   3. Writes an audit log entry to the legacy `logs` table
-///   4. Increments the user's gross quota counter (on success only, HTTP &lt; 400)
-/// </summary>
 public sealed class RequestLoggingMiddleware
 {
     private readonly RequestDelegate _next;
@@ -41,7 +34,6 @@ public sealed class RequestLoggingMiddleware
             return;
         }
 
-        // --- 1. Quota pre-check ---
         var allowed = await quotaService.CheckAsync(ctx.UserId, httpContext.RequestAborted);
         if (!allowed)
         {
@@ -68,7 +60,6 @@ public sealed class RequestLoggingMiddleware
             return;
         }
 
-        // --- 2. Execute downstream pipeline ---
         var startTime = DateTime.UtcNow;
         Exception? captured = null;
 
@@ -81,7 +72,6 @@ public sealed class RequestLoggingMiddleware
             captured = ex;
         }
 
-        // --- 3. Audit log (always, regardless of success/failure) ---
         var endTime    = DateTime.UtcNow;
         var statusCode = captured is not null ? 500 : httpContext.Response.StatusCode;
         var state      = statusCode >= 400 ? -statusCode : 0;
@@ -116,7 +106,6 @@ public sealed class RequestLoggingMiddleware
                 ctx.UserId, entry.Verb, entry.Method);
         }
 
-        // --- 4. Quota increment (success only) ---
         if (statusCode < 400)
         {
             try
@@ -137,8 +126,6 @@ public sealed class RequestLoggingMiddleware
     private static string DeriveObjectType(PathString path)
     {
         var segments = path.ToString().Split('/', StringSplitOptions.RemoveEmptyEntries);
-        // /v1/user/me  → "user"
-        // /v1/search   → "search"
         return segments.Length >= 2 ? segments[1] : "api";
     }
 }

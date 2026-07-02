@@ -13,7 +13,6 @@ public sealed class SearchPeopleTests : IClassFixture<CardsApiFactory>
     public SearchPeopleTests(CardsApiFactory factory)
         => _client = factory.CreateClient();
 
-    // 200
     [Fact]
     public async Task Returns200_WithValidQueryAndToken()
     {
@@ -50,7 +49,6 @@ public sealed class SearchPeopleTests : IClassFixture<CardsApiFactory>
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 
-    // 400
     [Fact]
     public async Task Returns400_WhenQueryParamIsMissing()
     {
@@ -71,7 +69,6 @@ public sealed class SearchPeopleTests : IClassFixture<CardsApiFactory>
         Assert.Equal("MISSING_QUERY", body!.ErrorCode);
     }
 
-    // 401
     [Fact]
     public async Task Returns401_WhenNoTokenProvided()
     {
@@ -88,7 +85,6 @@ public sealed class SearchPeopleTests : IClassFixture<CardsApiFactory>
         Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
-    // 403
     [Fact]
     public async Task Returns403_WhenContractIsInactive()
     {
@@ -99,7 +95,6 @@ public sealed class SearchPeopleTests : IClassFixture<CardsApiFactory>
         Assert.Equal("CONTRACT_INACTIVE", body!.ErrorCode);
     }
 
-    // 500
     [Fact]
     public async Task Returns500_WhenRepositoryThrowsUnexpectedly()
     {

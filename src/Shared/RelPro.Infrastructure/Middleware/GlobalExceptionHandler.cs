@@ -8,12 +8,6 @@ using System.Text.Json;
 
 namespace RelPro.Infrastructure.Middleware;
 
-/// <summary>
-/// Catches all unhandled exceptions and returns a consistent ApiResponse.Fail() JSON body.
-/// Register with app.UseExceptionHandler() - see InfrastructureServiceExtensions.UseGlobalExceptionHandler().
-/// HTTP status mapping mirrors CARDS legacy codes where applicable (408 for timeouts, 429 for quota, 503 for
-/// external service failures).
-/// </summary>
 public sealed class GlobalExceptionHandler : IExceptionHandler
 {
     private readonly ILogger<GlobalExceptionHandler> _logger;

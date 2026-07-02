@@ -14,21 +14,6 @@ public sealed class SearchController : ControllerBase
 
     public SearchController(IPersonSearchRepository repo) => _repo = repo;
 
-    /// <summary>
-    /// Full-text people search against the MySQL `individuals` table.
-    /// </summary>
-    /// <remarks>
-    /// Searches name, email, title, and company fields. Results are ordered by relevance.
-    /// `limit` is clamped to [1, 100] - values outside this range default to 20.
-    ///
-    /// **Error codes:**
-    /// - `MISSING_QUERY` - `q` parameter is required and must not be blank
-    /// - `MISSING_TOKEN` / `INVALID_SESSION` - authentication required
-    /// - `CONTRACT_INACTIVE` - caller's contract is not active
-    /// </remarks>
-    /// <param name="q">Search term (required)</param>
-    /// <param name="limit">Maximum results to return, 1-100 (default 20)</param>
-    /// <param name="ct">Cancellation token</param>
     [HttpGet("people")]
     [ProducesResponseType(typeof(ApiResponse<IReadOnlyList<PersonResult>>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]

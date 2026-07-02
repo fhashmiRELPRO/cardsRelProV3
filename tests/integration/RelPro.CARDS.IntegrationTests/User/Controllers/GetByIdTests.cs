@@ -13,7 +13,6 @@ public sealed class GetByIdTests : IClassFixture<CardsApiFactory>
     public GetByIdTests(CardsApiFactory factory)
         => _client = factory.CreateClient();
 
-    // 200
     [Fact]
     public async Task Returns200_WhenUserExistsInSameOrg()
     {
@@ -44,7 +43,6 @@ public sealed class GetByIdTests : IClassFixture<CardsApiFactory>
         Assert.Equal("Test Bank", data.OrgName);
     }
 
-    // 400
     [Fact]
     public async Task Returns400_WhenIdIsZero()
     {
@@ -76,7 +74,6 @@ public sealed class GetByIdTests : IClassFixture<CardsApiFactory>
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 
-    // 401
     [Fact]
     public async Task Returns401_WhenNoTokenProvided()
     {
@@ -93,7 +90,6 @@ public sealed class GetByIdTests : IClassFixture<CardsApiFactory>
         Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
-    // 403
     [Fact]
     public async Task Returns403_WhenEntitlementIsMissing()
     {
@@ -114,7 +110,6 @@ public sealed class GetByIdTests : IClassFixture<CardsApiFactory>
         Assert.Equal("CONTRACT_INACTIVE", body!.ErrorCode);
     }
 
-    // 404
     [Fact]
     public async Task Returns404_WhenUserDoesNotExist()
     {
@@ -135,7 +130,6 @@ public sealed class GetByIdTests : IClassFixture<CardsApiFactory>
         Assert.Equal("NOT_FOUND", body!.ErrorCode);
     }
 
-    // 500
     [Fact]
     public async Task Returns500_WhenRepositoryThrowsUnexpectedly()
     {

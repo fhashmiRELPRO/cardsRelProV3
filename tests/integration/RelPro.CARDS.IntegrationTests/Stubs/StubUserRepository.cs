@@ -2,13 +2,6 @@ using RelPro.CARDS.Api.User.Repositories;
 
 namespace RelPro.CARDS.IntegrationTests.Stubs;
 
-/// <summary>
-/// In-memory stub for IUserRepository (user profile lookups).
-/// userId=1001 → user in org 10 (matching test caller)
-/// userId=1099 → user in org 99 (different org - triggers security 404)
-/// userId=9999 → null (not found → 404)
-/// userId=500  → throws to simulate an unexpected DB error (→ 500)
-/// </summary>
 public sealed class StubUserRepository : RelPro.CARDS.Api.User.Repositories.IUserRepository
 {
     public Task<UserRow?> GetByIdAsync(int userId, CancellationToken ct = default)

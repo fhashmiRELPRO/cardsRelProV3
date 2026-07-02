@@ -6,7 +6,6 @@ public sealed class ContractEntitlementsDto
 {
     public int ContractId { get; init; }
 
-    // Search
     public bool SearchPeople { get; init; }
     public bool SearchCompanies { get; init; }
     public bool SearchAdvanced { get; init; }
@@ -14,7 +13,6 @@ public sealed class ContractEntitlementsDto
     public bool SearchSavedSearches { get; init; }
     public bool SearchAlerts { get; init; }
 
-    // Export
     public bool ExportPeople { get; init; }
     public bool ExportCompanies { get; init; }
     public bool ExportBulk { get; init; }
@@ -22,7 +20,6 @@ public sealed class ContractEntitlementsDto
     public bool ExportToExcel { get; init; }
     public bool ExportToCsv { get; init; }
 
-    // CRM Integration
     public bool CRMSalesforce { get; init; }
     public bool CRMHubSpot { get; init; }
     public bool CRMDynamics { get; init; }
@@ -31,7 +28,6 @@ public sealed class ContractEntitlementsDto
     public bool CRMOutreach { get; init; }
     public bool CRMSalesloft { get; init; }
 
-    // Data Access
     public bool DataDirectDial { get; init; }
     public bool DataMobilePhone { get; init; }
     public bool DataPersonalEmail { get; init; }
@@ -43,7 +39,6 @@ public sealed class ContractEntitlementsDto
     public bool DataJobChanges { get; init; }
     public bool DataNewsletter { get; init; }
 
-    // User Management
     public bool UserManagement { get; init; }
     public bool UserRoles { get; init; }
     public bool UserTeams { get; init; }
@@ -51,61 +46,51 @@ public sealed class ContractEntitlementsDto
     public bool UserSSO { get; init; }
     public bool UserAuditLog { get; init; }
 
-    // List Management
     public bool ListCreate { get; init; }
     public bool ListShare { get; init; }
     public bool ListImport { get; init; }
     public bool ListSuppression { get; init; }
     public bool ListEnrichment { get; init; }
 
-    // Vendor Data
     public bool VendorDataIntegration { get; init; }
     public bool VendorCustomData { get; init; }
     public bool VendorApiAccess { get; init; }
     public bool VendorWebhooks { get; init; }
 
-    // Reporting
     public bool ReportingBasic { get; init; }
     public bool ReportingAdvanced { get; init; }
     public bool ReportingDashboard { get; init; }
     public bool ReportingExport { get; init; }
 
-    // AI Features
     public bool AIRecommendations { get; init; }
     public bool AIInsights { get; init; }
     public bool AISmartSearch { get; init; }
     public bool AIChatAssist { get; init; }
 
-    // Automation
     public bool AutomationSequences { get; init; }
     public bool AutomationWorkflows { get; init; }
     public bool AutomationScheduled { get; init; }
     public bool AutomationWebhookTrigger { get; init; }
 
-    // File Management
     public bool FileUpload { get; init; }
     public bool FileStorage { get; init; }
     public bool FileSharing { get; init; }
 
-    // Email
     public bool EmailVerification { get; init; }
     public bool EmailTracking { get; init; }
     public bool EmailTemplates { get; init; }
     public bool EmailBulkSend { get; init; }
 
-    // API Access
     public bool ApiAccess { get; init; }
     public bool ApiHighRateLimit { get; init; }
     public bool ApiWebhooks { get; init; }
 
-    // Platform
     public bool PlatformMultiOrg { get; init; }
     public bool PlatformWhiteLabel { get; init; }
     public bool PlatformCustomBranding { get; init; }
     public bool PlatformSupportPriority { get; init; }
     public bool PlatformDedicatedCsm { get; init; }
 
-    // Compliance
     public bool ComplianceGdprTools { get; init; }
     public bool ComplianceCcpaTools { get; init; }
     public bool ComplianceDataRetention { get; init; }

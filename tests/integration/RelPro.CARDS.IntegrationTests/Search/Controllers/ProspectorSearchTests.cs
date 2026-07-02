@@ -13,7 +13,6 @@ public sealed class ProspectorSearchTests : IClassFixture<CardsApiFactory>
     public ProspectorSearchTests(CardsApiFactory factory)
         => _client = factory.CreateClient();
 
-    // 200
     [Fact]
     public async Task Returns200_WithQueryParam()
     {
@@ -47,7 +46,6 @@ public sealed class ProspectorSearchTests : IClassFixture<CardsApiFactory>
         Assert.Contains("\"searchId\"", json);
     }
 
-    // 400
     [Fact]
     public async Task Returns400_WhenNoSearchTermProvided()
     {
@@ -78,7 +76,6 @@ public sealed class ProspectorSearchTests : IClassFixture<CardsApiFactory>
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 
-    // 401
     [Fact]
     public async Task Returns401_WhenNoTokenProvided()
     {
@@ -95,7 +92,6 @@ public sealed class ProspectorSearchTests : IClassFixture<CardsApiFactory>
         Assert.Equal(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
-    // 408
     [Fact]
     public async Task Returns408_WhenAtlasSearchTimesOut()
     {

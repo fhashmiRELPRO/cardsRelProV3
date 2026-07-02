@@ -1,8 +1,5 @@
 namespace RelPro.Infrastructure.OrgServices;
 
-/// <summary>
-/// Integer constants matching CARDS's DATA_SOURCE_TYPE enum in WEBRequest.cs.
-/// </summary>
 public static class DataSourceType
 {
     public const int MongoDbSearchIndividual   = 2411;

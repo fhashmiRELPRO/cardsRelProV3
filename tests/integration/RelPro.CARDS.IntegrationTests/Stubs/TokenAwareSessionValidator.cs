@@ -2,10 +2,6 @@ using RelPro.Infrastructure.Session;
 
 namespace RelPro.CARDS.IntegrationTests.Stubs;
 
-/// <summary>
-/// Maps well-known token strings to specific sessions for integration testing.
-/// Anything else → null (invalid session → 401).
-/// </summary>
 public sealed class TokenAwareSessionValidator : ISessionValidator
 {
     // ContractId 500 = active, all entitlements

@@ -44,8 +44,6 @@ public sealed class DbEntitlementLoader : IEntitlementLoader
         // Column names are mixed snake_case and camelCase in the DB (legacy inconsistency).
         // Computed flags from the stored proc (allowSalesforce, allowSSO, etc.) are not
         // available here - those require rpro3_read_contract_entitlements_* stored proc.
-        // TODO: migrate to stored proc once session validation is refactored to avoid the
-        //       extra DB call that stored proc usage would currently require (see ADR note).
         return new ContractEntitlementsDto
         {
             ContractId = contractId,

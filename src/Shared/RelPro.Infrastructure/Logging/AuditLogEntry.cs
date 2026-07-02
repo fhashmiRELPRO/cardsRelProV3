@@ -1,9 +1,5 @@
 namespace RelPro.Infrastructure.Logging;
 
-/// <summary>
-/// All fields required by rpro3_create_log_3_3_0_4. Nullable fields default to null/0
-/// when not applicable to the endpoint being logged.
-/// </summary>
 public sealed class AuditLogEntry
 {
     public int UserId { get; init; }

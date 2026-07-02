@@ -2,10 +2,6 @@ using System.Text.Json.Serialization;
 
 namespace RelPro.CARDS.Api.Search.Models;
 
-/// <summary>
-/// Matches the CARDS SerializeFoundIndividual response shape exactly.
-/// Frontend code can consume this without changes.
-/// </summary>
 public sealed class IndividualResult
 {
     [JsonPropertyName("firstName")]    public string  FirstName    { get; init; } = "";

@@ -1,9 +1,5 @@
 namespace RelPro.CARDS.Api.User.Repositories;
 
-/// <summary>
-/// Internal DTO mapped by Dapper from rcp2_read_user stored procedure output.
-/// Property names match the column aliases returned by the proc (case-insensitive).
-/// </summary>
 public sealed class UserRow
 {
     public int     Id                 { get; init; }
