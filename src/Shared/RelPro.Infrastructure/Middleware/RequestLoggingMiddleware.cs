@@ -34,9 +34,8 @@ public sealed class RequestLoggingMiddleware
         IQuotaService quotaService,
         IEmailService emailService)
     {
-        // RequestContextMiddleware guarantees UserId > 0 by the time we run.
-        // Guard handles any future pipeline re-ordering.
-        if (ctx.UserId <= 0)
+        // Skip logging/quota for unauthenticated endpoints (e.g. /v1/auth/login).
+        if (!ctx.IsPopulated)
         {
             await _next(httpContext);
             return;

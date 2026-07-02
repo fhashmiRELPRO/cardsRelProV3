@@ -5,6 +5,7 @@ namespace RelPro.Infrastructure.Context;
 
 public interface IRequestContext
 {
+    bool IsPopulated { get; }
     int UserId { get; }
     int OrgId { get; }
     int ContractId { get; }

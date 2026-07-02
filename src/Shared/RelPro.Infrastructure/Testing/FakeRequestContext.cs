@@ -11,6 +11,7 @@ namespace RelPro.Infrastructure.Testing;
 /// </summary>
 public sealed class FakeRequestContext : IRequestContext
 {
+    public bool IsPopulated { get; init; } = true;
     public int UserId { get; init; } = 1001;
     public int OrgId { get; init; } = 10;
     public int ContractId { get; init; } = 500;
